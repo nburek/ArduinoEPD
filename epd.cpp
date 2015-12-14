@@ -81,6 +81,7 @@ namespace EPD {
         
         delay(125);	
         serial.begin(baudRate);
+        serial.setTimeout(100);
         
         return handshake();
     }
@@ -99,7 +100,7 @@ namespace EPD {
         sendData(GET_STORAGE_AREA_PACKET, 9);
         delay(WAIT_FOR_RESPONSE_MS);
         
-        serial.readBytes(inBuffer, 1);
+        serial.readBytes(inBuffer, 4);
         if (inBuffer[0] == '1')
             return StorageArea::MICRO_SD;
         

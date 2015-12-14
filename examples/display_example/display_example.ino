@@ -1,4 +1,4 @@
-#include "../libraries/epd/epd.h"
+#include <epd.h>
 
 using namespace EPD;
 

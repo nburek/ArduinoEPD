@@ -5,6 +5,7 @@
  *      2. In testing on othe Arduino Yun, communicating with the panel at the default 115200 Baud Rate yields
  *          a lot of noise on signal line coming out of the panel. Decreasing the Baud Rate to 57600 solved this
  *          problem in my testing.
+ *      3. The command GET_STORAGE_AREA is returning "OK" instead of a '0' or '1' like expected
  *
  */
 #ifndef EPD_h
@@ -121,7 +122,7 @@ namespace EPD {
             
             
         private:
-            static const short WAIT_FOR_RESPONSE_MS = 10;
+            static const short WAIT_FOR_RESPONSE_MS = 20;
             static const byte FRAME_HEADER = 0xA5;
             static const byte FRAME_END[4];
             
